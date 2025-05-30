@@ -1,43 +1,33 @@
-import { Link } from "react-router-dom";
+import Moon from "../assets/moon.svg";
 
-import { Container, VStack, Text, Heading, Button } from "@chakra-ui/react";
+import { Container, VStack, Text, Heading, Image, Box } from "@chakra-ui/react";
 
 export const HomePage = () => {
   return (
     <Container mb={4}>
-      <VStack
-        h={"lg"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        borderWidth={2}
-      >
+      <VStack h={"lg"} alignItems={"center"} justifyContent={"center"}>
+        <Box maxWidth={{ base: "100px", sm: "200px" }} mb={4}>
+          <Image src={Moon} alt="moon" />
+        </Box>
         <Heading
           as={"h1"}
-          size={{ base: "3xl", sm: "4xl" }}
-          bg={"purple.400"}
-          color={"black"}
-          px={2}
+          size={{ base: "4xl", sm: "6xl" }}
+          bg={"blue.500/30"}
+          px={4}
+          className="syne-sans"
         >
           dreams tracker
         </Heading>
         <Text
           fontSize={{ base: "2xl", sm: "3xl" }}
           textAlign={"center"}
-          mb={2}
+          mt={2}
+          mb={6}
           p={2}
+          fontWeight={"light"}
         >
-          capture your dreams, discover yourself.
+          capture your dreams, discover yourself
         </Text>
-        <Link to={"/create"}>
-          <Button
-            textTransform={"uppercase"}
-            _hover={{ opacity: "0.85" }}
-            rounded={"l1"}
-            size={"lg"}
-          >
-            Start Tracking
-          </Button>
-        </Link>
       </VStack>
     </Container>
   );

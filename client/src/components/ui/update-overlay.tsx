@@ -17,15 +17,15 @@ import { useColorModeValue } from "./color-mode";
 import { Dream } from "../../store/dream";
 
 type UpdateOverlayProps = {
-  dream: Dream
-}
+  dream: Dream;
+};
 
-export const UpdateOverlay = ({ dream }: UpdateOverlayProps ) => {
+export const UpdateOverlay = ({ dream }: UpdateOverlayProps) => {
   const [updatedDream, setUpdatedDream] = useState(dream);
 
   const { updateDream } = useDreamStore();
 
-  const handleUpdateDream = async (pid:string, updatedDream:Dream) => {
+  const handleUpdateDream = async (pid: string, updatedDream: Dream) => {
     const { success, message } = await updateDream(pid, updatedDream);
     if (!success) {
       toaster.create({
@@ -43,7 +43,7 @@ export const UpdateOverlay = ({ dream }: UpdateOverlayProps ) => {
   return (
     <Dialog.Root modal={true}>
       <Dialog.Trigger asChild>
-        <Button rounded={"l1"} size="sm">
+        <Button rounded={"l3"} size="sm">
           <HiOutlinePencil />
         </Button>
       </Dialog.Trigger>
@@ -52,7 +52,14 @@ export const UpdateOverlay = ({ dream }: UpdateOverlayProps ) => {
         <Dialog.Positioner>
           <Dialog.Content bg={useColorModeValue("gray.50", "gray.800")}>
             <Dialog.Header>
-              <Dialog.Title px={4}>Update Dream</Dialog.Title>
+              <Dialog.Title
+                paddingLeft={4}
+                className="syne-sans"
+                fontSize={"2xl"}
+                fontWeight={"bold"}
+              >
+                Update Dream
+              </Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>
               <VStack p={4} gap={4}>
@@ -162,16 +169,14 @@ export const UpdateOverlay = ({ dream }: UpdateOverlayProps ) => {
             </Dialog.Body>
             <Dialog.Footer>
               <Dialog.ActionTrigger asChild>
-                <Button variant="outline" fontSize={14} fontWeight={"normal"}>
+                <Button variant="ghost" rounded={"l2"}>
                   Cancel
                 </Button>
               </Dialog.ActionTrigger>
               <Dialog.ActionTrigger asChild>
                 <Button
-                  fontSize={14}
-                  fontWeight={"normal"}
-                  bg={"purple.500"}
-                  _hover={{ bg: "purple.600" }}
+                  rounded={"l2"}
+                  variant={"solid"}
                   onClick={() => handleUpdateDream(dream._id, updatedDream)}
                 >
                   <HiOutlineCheck />

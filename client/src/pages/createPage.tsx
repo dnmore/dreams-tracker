@@ -13,7 +13,7 @@ import {
 import { Toaster, toaster } from "../components/ui/toaster";
 import { moods, people, places, objects } from "../labels";
 import { HiOutlineCheck } from "react-icons/hi";
-
+import Rocket from "../assets/rocket.svg";
 
 export const CreatePage = () => {
   const [newDream, setNewDream] = useState<{
@@ -62,21 +62,40 @@ export const CreatePage = () => {
   return (
     <Card.Root
       mx={"auto"}
-      mt={4}
-      flexDirection={{ base: "column", sm: "row" }}
+      mt={8}
+      display={"grid"}
+      gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }}
       overflow="hidden"
       maxW={"3xl"}
-      rounded={"l1"}
+      rounded={"l3"}
+      border={"1px solid"}
+      borderColor={"border.emphasized"}
     >
-      <Image
-        objectFit="cover"
-        maxW="400px"
-        src="https://images.unsplash.com/vector-1745329694982-ec248d383378?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW1hbHxlbnwwfHwwfHx8Mg%3D%3D"
-        alt="Rocket taking off into space"
-      />
-      <Box w={'full'}>
+      <Box
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        bg={"bg.muted"}
+        
+      >
+        <Image
+          src={Rocket}
+          alt="Rocket taking off into space"
+          objectFit="cover"
+        />
+      </Box>
+
+      <Box>
         <Card.Body>
-          <Card.Title mb="2">Track new dream</Card.Title>
+          <Card.Title
+            mb="2"
+            className="syne-sans"
+            fontSize={"3xl"}
+            fontWeight={"bold"}
+            marginBottom={"4"}
+          >
+            Track new dream
+          </Card.Title>
 
           <VStack>
             <Input
@@ -174,11 +193,11 @@ export const CreatePage = () => {
         <Card.Footer>
           <Button
             w={"full"}
-            _hover={{ opacity: "0.85" }}
-            rounded={"l1"}
+            rounded={"l2"}
+            variant={"solid"}
             onClick={handleAddDream}
           >
-            <HiOutlineCheck /> Save dream
+            <HiOutlineCheck /> Save Dream
           </Button>
         </Card.Footer>
       </Box>

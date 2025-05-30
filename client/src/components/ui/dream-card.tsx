@@ -78,7 +78,7 @@ export const DreamCard = ({ dream }: DreamCardProps) => {
         <Card.Footer justifyContent={"flex-end"}>
           <UpdateOverlay dream={dream} />
           <Button
-            rounded={"l1"}
+            rounded={"l3"}
             size="sm"
             colorPalette={"red"}
             onClick={() => handleDeleteDream(dream._id)}

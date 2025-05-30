@@ -43,13 +43,14 @@ export const JournalPage = () => {
         py={4}
       >
         <Heading
-          as={"h2"}
+          as={"h1"}
           size={{ base: "xl", sm: "3xl" }}
           py={4}
           display={"flex"}
           alignItems={"center"}
           gap={2}
-          id="journal"
+          className="syne-sans"
+          
         >
           <HiMiniBars3CenterLeft />
           Journal Entries
