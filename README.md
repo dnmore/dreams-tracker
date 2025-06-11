@@ -4,6 +4,8 @@ A full-stack MERN (MongoDB, Express, React, Node.js) application that lets users
 
 ---
 
+![Preview](/dreamy-preview.png)
+
 ## ✨ Features
 
 - ✅ **CRUD operations** for managing dreams
